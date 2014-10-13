@@ -405,7 +405,7 @@ BasicGame.Game.prototype = {
     if (this.showReturn && this.time.now > this.showReturn) {
       this.returnText = this.add.text(
         this.game.width / 2, this.game.height / 2 + 40, 
-        'Press Z or Tap Game to go back to Main Menu', 
+        'Press SPACEBAR to go back to Main Menu', 
         { font: '16px sans-serif', fill: '#fff'}
       );
       this.returnText.anchor.setTo(0.5, 0.5);
@@ -554,7 +554,7 @@ BasicGame.Game.prototype = {
       }
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.BULLET_VELOCITY;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
     } else {
       if (this.bulletPool.countDead() < this.weaponLevel * 2) {
         return;
@@ -565,7 +565,7 @@ BasicGame.Game.prototype = {
         bullet.reset(this.player.x - (10 + i * 6), this.player.y - 20);
         // the left bullets spread from -95 degrees to -135 degrees
         this.physics.arcade.velocityFromAngle(
-          -95 - i * 10, BasicGame.BULLET_VELOCITY, bullet.body.velocity
+          -95 - i * 10, BasicGame.PLAYER_BULLET_VELOCITY, bullet.body.velocity
         );
 
         bullet = this.bulletPool.getFirstExists(false);
@@ -573,7 +573,7 @@ BasicGame.Game.prototype = {
         bullet.reset(this.player.x + (10 + i * 6), this.player.y - 20);
         // the right bullets spread from -85 degrees to -45
         this.physics.arcade.velocityFromAngle(
-          -85 + i * 10, BasicGame.BULLET_VELOCITY, bullet.body.velocity
+          -85 + i * 10, BasicGame.PLAYER_BULLET_VELOCITY, bullet.body.velocity
         );
       }
     }
