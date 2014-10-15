@@ -47,7 +47,7 @@ BasicGame.Game.prototype = {
     this.player.speed = BasicGame.PLAYER_SPEED;
     this.player.body.collideWorldBounds = true;
     // 20 x 20 pixel hitbox, centered a little bit higher than the center
-    this.player.body.setSize(20, 20, 0, -5);
+    this.player.body.setSize(30, 30, 0, -5);
     this.weaponLevel = 0;
   },
 
@@ -93,13 +93,13 @@ BasicGame.Game.prototype = {
     );
 
     // Set the animation for each sprite
-    this.shooterPool.forEach(function (enemy) {
-      enemy.animations.add('fly', [ 0, 1, 2 ], 20, true);
-      enemy.animations.add('hit', [ 3, 1, 3, 2 ], 20, false);
-      enemy.events.onAnimationComplete.add( function (e) {
-        e.play('fly');
-      }, this);
-    });
+    // this.shooterPool.forEach(function (enemy) {
+    //   enemy.animations.add('fly', [ 0, 1, 2 ], 20, true);
+    //   enemy.animations.add('hit', [ 3, 1, 3, 2 ], 20, false);
+    //   enemy.events.onAnimationComplete.add( function (e) {
+    //     e.play('fly');
+    //   }, this);
+    // });
 
     // start spawning 5 seconds into the game
     this.nextShooterAt = this.time.now + Phaser.Timer.SECOND * 5;
@@ -120,11 +120,8 @@ BasicGame.Game.prototype = {
 
     // Set the animation for each sprite
     this.bossPool.forEach(function (enemy) {
-      enemy.animations.add('fly', [ 0, 1, 2 ], 20, true);
-      enemy.animations.add('hit', [ 3, 1, 3, 2 ], 20, false);
-      enemy.events.onAnimationComplete.add( function (e) {
-        e.play('fly');
-      }, this);
+      enemy.animations.add('hit', [1, 0], 20, false);
+    
     });
 
     this.boss = this.bossPool.getTop();
@@ -315,7 +312,7 @@ BasicGame.Game.prototype = {
     this.shooterPool.forEachAlive(function (enemy) {
       if (this.time.now > enemy.nextShotAt && this.enemyBulletPool.countDead() > 0) {
         var bullet = this.enemyBulletPool.getFirstExists(false);
-        bullet.reset(enemy.x, enemy.y);
+        bullet.reset(enemy.x, enemy.y + 30);
         this.physics.arcade.moveToObject(
           bullet, this.player, BasicGame.ENEMY_BULLET_VELOCITY
         );
@@ -497,7 +494,7 @@ BasicGame.Game.prototype = {
       return;
     }
 
-    var msg = win ? 'You Win!' : 'Game Over :(';
+    var msg = win ? 'You Win!' : 'You Failed Us';
     this.endText = this.add.text( 
       this.game.width / 2, this.game.height / 2 - 80, msg, 
       { font: '72px serif', fill: '#7CFC00' }
