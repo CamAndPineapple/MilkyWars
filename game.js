@@ -423,7 +423,7 @@ BasicGame.Game.prototype = {
 
   enemyHit: function (bullet, enemy) {
     bullet.kill();
-    this.damageEnemy(enemy, BasicGame.BULLET_DAMAGE);
+    this.damageEnemy(enemy, bullet.body.BULLET_DAMAGE);
   },
 
   playerHit: function (player, enemy) {
@@ -552,28 +552,32 @@ BasicGame.Game.prototype = {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
       bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE;
+    } else if (this.weaponLevel === 1) {
+      bullet = this.bulletPool.getFirstExists(false);
+      bullet.reset(this.player.x, this.player.y - 20);
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 100;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 1;
+    } else if (this.weaponLevel === 2) {
+      bullet = this.bulletPool.getFirstExists(false);
+      bullet.reset(this.player.x, this.player.y - 20);
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 200;
+    } else if (this.weaponLevel === 3) {
+      bullet = this.bulletPool.getFirstExists(false);
+      bullet.reset(this.player.x, this.player.y - 20);
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 300;
+    } else if (this.weaponLevel === 4) {
+      bullet = this.bulletPool.getFirstExists(false);
+      bullet.reset(this.player.x, this.player.y - 20);
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 400;
     } else {
-      if (this.bulletPool.countDead() < this.weaponLevel * 2) {
-        return;
-      }
-      for (var i = 0; i < this.weaponLevel; i++) {
-        bullet = this.bulletPool.getFirstExists(false);
-        // spawn left bullet slightly left off center
-        bullet.reset(this.player.x - (10 + i * 6), this.player.y - 20);
-        // the left bullets spread from -95 degrees to -135 degrees
-        this.physics.arcade.velocityFromAngle(
-          -95 - i * 10, BasicGame.PLAYER_BULLET_VELOCITY, bullet.body.velocity
-        );
-
-        bullet = this.bulletPool.getFirstExists(false);
-        // spawn right bullet slightly right off center
-        bullet.reset(this.player.x + (10 + i * 6), this.player.y - 20);
-        // the right bullets spread from -85 degrees to -45
-        this.physics.arcade.velocityFromAngle(
-          -85 + i * 10, BasicGame.PLAYER_BULLET_VELOCITY, bullet.body.velocity
-        );
-      }
+      bullet = this.bulletPool.getFirstExists(false);
+      bullet.reset(this.player.x, this.player.y - 20);
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 500;
     }
+
+    console.log(bullet.body.velocity.y);
+    console.log(bullet.body.BULLET_DAMAGE);
   },
 
   quitGame: function (pointer) {
