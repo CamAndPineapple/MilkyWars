@@ -215,6 +215,12 @@ BasicGame.Game.prototype = {
       { font: '20px monospace', fill: '#fff', align: 'center' }
     );
     this.scoreText.anchor.setTo(0.5, 0.5);
+
+    this.powerupText = this.add.text(
+      this.game.width - 730, 30, '' + this.weaponLevel, 
+      { font: '20px monospace', fill: '#fff', align: 'center' }
+    );
+    this.scoreText.anchor.setTo(0.5, 0.5);
   },
 
   setupAudio: function () {
@@ -485,7 +491,10 @@ BasicGame.Game.prototype = {
     this.powerUpSFX.play();
     if (this.weaponLevel < 5) {
       this.weaponLevel++;
+      console.log("the weapon level is " + this.weaponLevel);
     }
+
+    
   },
 
   displayEnd: function (win) {
@@ -556,24 +565,28 @@ BasicGame.Game.prototype = {
     } else if (this.weaponLevel === 1) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 100;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
       bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 1;
     } else if (this.weaponLevel === 2) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 200;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 100;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 1;
     } else if (this.weaponLevel === 3) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
       bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 300;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 3;
     } else if (this.weaponLevel === 4) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 400;
-    } else {
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 4;
+      } else {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 500;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 5;
     }
 
     console.log(bullet.body.velocity.y);
