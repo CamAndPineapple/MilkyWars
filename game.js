@@ -48,7 +48,8 @@ BasicGame.Game.prototype = {
     this.player.body.collideWorldBounds = true;
     // 20 x 20 pixel hitbox, centered a little bit higher than the center
     this.player.body.setSize(30, 30, 0, -5);
-    this.weaponLevel = 0;
+
+   
   },
 
   setupEnemies: function () {
@@ -216,11 +217,14 @@ BasicGame.Game.prototype = {
     );
     this.scoreText.anchor.setTo(0.5, 0.5);
 
+    this.weaponLevel = 0;
     this.powerupText = this.add.text(
-      this.game.width - 730, 30, '' + this.weaponLevel, 
+      this.game.width/2, 30, '' + this.weaponLevel, 
       { font: '20px monospace', fill: '#fff', align: 'center' }
     );
     this.scoreText.anchor.setTo(0.5, 0.5);
+
+    
   },
 
   setupAudio: function () {
@@ -446,8 +450,10 @@ BasicGame.Game.prototype = {
     if (life !== null) {
       life.kill();
       this.weaponLevel = 0;
+      this.powerupText.text = this.weaponLevel;
       this.ghostUntil = this.time.now + BasicGame.PLAYER_GHOST_TIME;
       this.player.play('ghost');
+      
     } else {
       this.explode(player);
       player.kill();
@@ -491,9 +497,11 @@ BasicGame.Game.prototype = {
     this.powerUpSFX.play();
     if (this.weaponLevel < 5) {
       this.weaponLevel++;
+
       console.log("the weapon level is " + this.weaponLevel);
     }
 
+    this.powerupText.text = this.weaponLevel;
     
   },
 
