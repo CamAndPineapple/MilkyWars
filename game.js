@@ -35,6 +35,7 @@ BasicGame.Game.prototype = {
   setupBackground: function () {
     this.space = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'space');
     this.space.autoScroll(0, BasicGame.SPACE_SCROLL_SPEED);
+
   },
 
   setupPlayer: function () {
@@ -233,6 +234,9 @@ BasicGame.Game.prototype = {
     this.enemyFireSFX = this.add.audio('enemyFire');
     this.playerFireSFX = this.add.audio('playerFire');
     this.powerUpSFX = this.add.audio('powerUp');
+    this.soundtrack = this.add.audio('backgroundMusic');
+    this.soundtrack.play();
+
   },
 
   //
@@ -447,9 +451,9 @@ BasicGame.Game.prototype = {
     // crashing into an enemy only deals 5 damage
     this.damageEnemy(enemy, BasicGame.CRASH_DAMAGE);
     var life = this.lives.getFirstAlive();
-    if (life !== null) {
+    if (life !== null && this.weaponLevel > 0) {
       life.kill();
-      this.weaponLevel = 0;
+      this.weaponLevel--;
       this.powerupText.text = this.weaponLevel;
       this.ghostUntil = this.time.now + BasicGame.PLAYER_GHOST_TIME;
       this.player.play('ghost');
