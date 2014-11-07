@@ -583,21 +583,21 @@ BasicGame.Game.prototype = {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
       bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 100;
-      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 1;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE;
     } else if (this.weaponLevel === 3) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
       bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 300;
-      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 3;
+      bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE;
     } else if (this.weaponLevel === 4) {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 400;
       bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 4;
       } else {
       bullet = this.bulletPool.getFirstExists(false);
       bullet.reset(this.player.x, this.player.y - 20);
-      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY;
+      bullet.body.velocity.y = -BasicGame.PLAYER_BULLET_VELOCITY - 500;
       bullet.body.BULLET_DAMAGE = BasicGame.BULLET_DAMAGE + 5;
     }
 
