@@ -220,7 +220,7 @@ BasicGame.Game.prototype = {
 
     this.weaponLevel = 0;
     this.powerupText = this.add.text(
-      this.game.width/2, 30, '' + this.weaponLevel, 
+      this.game.width - 140, 50, 'PowerUp: ' + this.weaponLevel, 
       { font: '20px monospace', fill: '#fff', align: 'center' }
     );
     this.scoreText.anchor.setTo(0.5, 0.5);
@@ -454,7 +454,7 @@ BasicGame.Game.prototype = {
     if (life !== null && this.weaponLevel > 0) {
       life.kill();
       this.weaponLevel--;
-      this.powerupText.text = this.weaponLevel;
+      this.powerupText.text = "PowerUp: " + this.weaponLevel
       this.ghostUntil = this.time.now + BasicGame.PLAYER_GHOST_TIME;
       this.player.play('ghost');
       
@@ -505,7 +505,7 @@ BasicGame.Game.prototype = {
       console.log("the weapon level is " + this.weaponLevel);
     }
 
-    this.powerupText.text = this.weaponLevel;
+    this.powerupText.text = "PowerUp: " + this.weaponLevel;
     
   },
 
