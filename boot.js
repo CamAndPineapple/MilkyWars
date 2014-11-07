@@ -12,7 +12,7 @@ var BasicGame = {
   POWERUP_VELOCITY: 100,
 
   SPAWN_ENEMY_DELAY: Phaser.Timer.SECOND,
-  SPAWN_SHOOTER_DELAY: Phaser.Timer.SECOND * 10,
+  SPAWN_SHOOTER_DELAY: Phaser.Timer.SECOND * 5,
 
   SHOT_DELAY: Phaser.Timer.SECOND * .2,
   SHOOTER_SHOT_DELAY: Phaser.Timer.SECOND * 2,
@@ -20,7 +20,7 @@ var BasicGame = {
 
   ENEMY_HEALTH: 2,
   SHOOTER_HEALTH: 5,
-  BOSS_HEALTH: 500,
+  BOSS_HEALTH: 400,
 
   BULLET_DAMAGE: 1,
   CRASH_DAMAGE: 5,
@@ -28,13 +28,13 @@ var BasicGame = {
   ENEMY_REWARD: 100,
   SHOOTER_REWARD: 400,
   BOSS_REWARD: 10000,
-  POWERUP_REWARD: 100,
+  POWERUP_REWARD: 500,
 
-  ENEMY_DROP_RATE: 0,
-  SHOOTER_DROP_RATE: 1.0,
+  ENEMY_DROP_RATE: 0.04,
+  SHOOTER_DROP_RATE: 0.06,
   BOSS_DROP_RATE: 0,
 
-  PLAYER_EXTRA_LIVES: 3,
+  PLAYER_EXTRA_LIVES: 4,
   PLAYER_GHOST_TIME: Phaser.Timer.SECOND * 3,
 
   INSTRUCTION_EXPIRE: Phaser.Timer.SECOND * 2,
@@ -51,6 +51,7 @@ BasicGame.Boot.prototype = {
 
     //  Here we load the assets required for our preloader (in this case a loading bar)
     this.load.image('preloaderBar', 'assets/preloader-bar.png');
+    this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']); 
 
   },
 
