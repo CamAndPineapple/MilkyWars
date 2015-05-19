@@ -7,8 +7,8 @@ A simple arcade-style shooter I built as a side-project while studying abroad in
 
 Guide your rocketship through oncoming enemies, watch out for the boss!
 
-*Tap SPACEBAR or click mouse to Fire
-*Collect Powerups that make your bullets and rocketship faster, and increase bullet damage.
-*Collect Bombs and Shields that can be deployed with F (bombs) and D (shields).
+* Tap SPACEBAR or click mouse to Fire
+* Collect Powerups that make your bullets and rocketship faster, and increase bullet damage.
+* Collect Bombs and Shields that can be deployed with F (bombs) and D (shields).
 
 Play the game at http://theMilkyWars.github.io
