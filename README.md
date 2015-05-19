@@ -5,7 +5,7 @@ A simple arcade-style shooter I built as a side-project while studying abroad in
 
 ### Gameplay: ###
 
-Guide your rocketship through oncoming enemies, watch out for the boss!
+Guide your rocketship through oncoming enemies, and watch out for the boss!
 
 * Tap **SPACEBAR** or **Click Mouse** to Fire
 * Collect **Powerups** that make your bullets and rocketship faster, and increase bullet damage.
