@@ -24,24 +24,30 @@ BasicGame.Preloader.prototype = {
     this.load.setPreloadSprite(this.preloadBar);
 
     //  Here we load the rest of the assets our game needs.
-    this.load.image('titlePage', 'assets/titlepage.jpg');
+    this.load.image('titlePage', 'assets/titlePage.jpg');
     this.load.image('space', 'assets/space.png');
     this.load.image('bullet', 'assets/bullet.png');
+    this.load.image('shipExhaust', 'assets/shipExhaust.png');
+    this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('bombPowerUp', 'assets/bombPowerUp.png');
+    this.load.image('shieldPowerUp', 'assets/shield.png');
     this.load.image('enemyBullet', 'assets/enemy-bullet.png');
     this.load.image('powerup1', 'assets/powerup1.png');
     this.load.spritesheet('greenEnemy', 'assets/enemy.png', 40, 48);
     this.load.spritesheet('whiteEnemy', 'assets/shooting-enemy.png', 40, 60);
-    this.load.spritesheet('boss', 'assets/boss.png', 60, 75);
-    this.load.spritesheet('explosion', 'assets/explosion.png', 32, 32);
-    this.load.spritesheet('player', 'assets/player.png', 50, 60);
-    this.load.audio('backgroundMusic', ['assets/background.ogg', 'assets/background.wav']);
+    this.load.spritesheet('boss', 'assets/boss.png', 100, 100);
+    this.load.spritesheet('explosion', 'assets/explode1.png', 128, 128);
+    this.load.spritesheet('bombBlast', 'assets/shittyBomb.png', 243, 243);
+    this.load.spritesheet('player', 'assets/player.png', 75, 83);
+    this.load.audio('menuMusic', ['assets/menuSound.ogg', 'assets/menuSound.wav']);
+    this.load.audio('gameMusic', ['assets/background.ogg', 'assets/background.wav']); 
     this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']);
     this.load.audio('playerExplosion', ['assets/player-explosion.ogg', 'assets/player-explosion.wav']);
-   // this.load.audio('enemyFire', ['assets/enemy-fire.ogg', 'assets/enemy-fire.wav']);
-   //this.load.audio('playerFire', ['assets/player-fire.ogg', 'assets/player-fire.wav']);
     this.load.audio('powerUp', ['assets/powerup.ogg', 'assets/powerup.wav']);
-    //this.load.audio('titleMusic', ['audio/main_menu.mp3']);
-    //  + lots of other required assets here
+    this.load.audio('enemyFire', ['assets/enemy-fire.ogg', 'assets/enemy-fire.wav']);
+    this.load.audio('playerFire', ['assets/player-fire.ogg', 'assets/player-fire.wav']);
+
+    this.time.advancedTiming = true;
 
   },
 

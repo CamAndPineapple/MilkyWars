@@ -18,6 +18,9 @@ BasicGame.MainMenu.prototype = {
     this.loadingText.anchor.setTo(0.5, 0.5);
     this.add.text(this.game.width / 2, this.game.height - 220, "Press SPACEBAR to start", { font: "19px monospace", fill: "#fff", align: "center"}).anchor.setTo(0.5, 0.5);
     this.add.text(this.game.width / 2, this.game.height - 80, "Beautiful Powerups Copyright Mitchell Deaner", { font: "15px monospace", fill: "#fff", align: "center"}).anchor.setTo(0.5, 0.5);
+    this.menuMusic = this.add.audio('menuMusic');
+    this.menuMusic.play('', 0, 1, true);
+
     
   },
 
@@ -28,17 +31,17 @@ BasicGame.MainMenu.prototype = {
       this.startGame();
       
     }
-    //  Do some nice funky main menu effect here
 
   },
 
   startGame: function (pointer) {
 
-    //  Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-    // this.music.stop();
+    // This kills menuMusic when SPACEBAR is clicked
+
+    this.menuMusic.destroy();
 
 
-    //  And start the actual game
+    // This starts the game.js
     this.state.start('Game');
 
   }
