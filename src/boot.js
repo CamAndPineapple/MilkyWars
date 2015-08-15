@@ -68,7 +68,7 @@ BasicGame.Boot.prototype = {
   preload: function () {
 
     //  Load assets for preloader.js
-    this.load.image('preloaderBar', 'assets/preloader-bar.png');
+    this.load.image('preloaderBar', 'build/img/preloader-bar.png');
     this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']); 
 
     // Advanced profiling, including the fps rate, fps min/max and msMin/msMax are updated.

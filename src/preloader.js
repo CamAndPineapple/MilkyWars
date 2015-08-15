@@ -24,21 +24,21 @@ BasicGame.Preloader.prototype = {
     this.load.setPreloadSprite(this.preloadBar);
 
     //  Here we load the rest of the assets our game needs.
-    this.load.image('titlePage', 'assets/titlePage.jpg');
-    this.load.image('space', 'assets/space.png');
-    this.load.image('bullet', 'assets/bullet.png');
-    this.load.image('shipExhaust', 'assets/shipExhaust.png');
-    this.load.image('bomb', 'assets/bomb.png');
-    this.load.image('bombPowerUp', 'assets/bombPowerUp.png');
-    this.load.image('shieldPowerUp', 'assets/shield.png');
-    this.load.image('enemyBullet', 'assets/enemy-bullet.png');
-    this.load.image('powerup1', 'assets/powerup1.png');
-    this.load.spritesheet('greenEnemy', 'assets/enemy.png', 40, 48);
-    this.load.spritesheet('whiteEnemy', 'assets/shooting-enemy.png', 40, 60);
-    this.load.spritesheet('boss', 'assets/boss.png', 100, 100);
-    this.load.spritesheet('explosion', 'assets/explode1.png', 128, 128);
-    this.load.spritesheet('bombBlast', 'assets/shittyBomb.png', 243, 243);
-    this.load.spritesheet('player', 'assets/player.png', 75, 83);
+    this.load.image('titlePage', 'build/img/titlePage.jpg');
+    this.load.image('space', 'build/img/space.png');
+    this.load.image('bullet', 'build/img/bullet.png');
+    this.load.image('shipExhaust', 'build/img/shipExhaust.png');
+    this.load.image('bomb', 'build/img/bomb.png');
+    this.load.image('bombPowerUp', 'build/img/bombPowerUp.png');
+    this.load.image('shieldPowerUp', 'build/img/shield.png');
+    this.load.image('enemyBullet', 'build/img/enemy-bullet.png');
+    this.load.image('powerup1', 'build/img/powerup1.png');
+    this.load.spritesheet('greenEnemy', 'build/img/enemy.png', 40, 48);
+    this.load.spritesheet('whiteEnemy', 'build/img/shooting-enemy.png', 40, 60);
+    this.load.spritesheet('boss', 'build/img/boss.png', 100, 100);
+    this.load.spritesheet('explosion', 'build/img/explode1.png', 128, 128);
+    this.load.spritesheet('bombBlast', 'build/img/shittyBomb.png', 243, 243);
+    this.load.spritesheet('player', 'build/img/player.png', 75, 83);
     this.load.audio('menuMusic', ['assets/menuSound.ogg', 'assets/menuSound.wav']);
     this.load.audio('gameMusic', ['assets/background.ogg', 'assets/background.wav']); 
     this.load.audio('explosion', ['assets/explosion.ogg', 'assets/explosion.wav']);
