@@ -14,7 +14,7 @@ var gulp = require('gulp'),
 gulp.task('scripts', function() {
   return gulp.src('./src/*.js')
     .pipe(concat('all.js'))
-    .pipe(uglify())
+    
     .pipe(gulp.dest('./build/'));
 });
 
