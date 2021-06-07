@@ -11,4 +11,4 @@ Guide your rocketship through oncoming enemies, and watch out for the boss!
 * Collect **Powerups** that make your bullets and rocketship faster, and increase bullet damage.
 * Collect **Bombs** and **Shields** that can be deployed with **F** (bombs) and **D** (shields).
 
-Play the game at http://camru.github.io/MilkyWars
+Play the game [here](http://camru.github.io/MilkyWars)
